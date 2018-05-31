@@ -3,6 +3,9 @@ function createElement(tagName , attributes, children) {
   for(key in attributes) {
     element.setAttribute(key, attributes[key])
   }
-  element.innerHTML = children
+  children.forEach(elem => {
+    let child = document.createTextNode(elem)
+    element.appendChild(child)
+  })
   return element;
 }

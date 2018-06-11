@@ -18,15 +18,27 @@ const pick = (obj, keys) => {
     .reduce((res, o) => Object.assign(res, o), {});
 }
 
-const omit = (obj, keys) => {
-    let target = {}
-    for(let i in obj) {
-      if (keys.indexOf(i) >= 0) {continue};
-      if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
-      target[i] = obj[i];
-    }
-    return target
-}
+// const omit = (obj, keys) => {
+//     let target = {}
+//     for(let i in obj) {
+//       if (keys.indexOf(i) >= 0) {continue};
+//       if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+//       target[i] = obj[i];
+//     }
+//     return target
+// }
+
+// const omit = (obj, keys) => {
+//   let newArray = {[]}
+//   for(let i = 0; i < keys.length; i++) {
+//     for(let prop in obj) {
+//       if (prop === keys[i]) {
+//         newArray.push({prop:[obj[prop]]})
+//       }
+//     }
+//   }
+//   return newArray
+// }
 
 const partition = (collection, predicate) => {
   let truthy = []

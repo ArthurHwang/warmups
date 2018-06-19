@@ -1,9 +1,9 @@
 const firstChar = (string) => {
-  return string.split('')[0]
+  return string[0]
 }
 
 const lastChar = (string) => {
-  return string.split('')[string.length - 1]
+  return string[string.length - 1]
 }
 
 const repeat = (string, number) => {

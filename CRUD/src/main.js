@@ -1,21 +1,19 @@
 function createCollection() {
-
   const items = []
   let nextId = 1
 
   return {
-    getitems: function() {
+    getitems() {
       return items
     },
-    create: function (item) {
-      let newObj = { ...item
-      }
+    create(item) {
+      let newObj = { ...item}
       newObj.id = nextId
       nextId++
       items.push(newObj)
       return newObj
     },
-    findById: function (ident) {
+    findById(ident) {
       for (let i = 0; i < items.length; i++) {
         if (items[i].id = ident) {
           return items[i]
@@ -23,51 +21,33 @@ function createCollection() {
       }
       return null
     },
-    updateById: function (ident, updates) {
+    updateById(ident, updates) {
       for (let i = 0; i < items.length; i++) {
         if (items[i].id = ident) {
           items[i] = { ...items[i],
             ...updates
           }
-
           return items[i]
         }
-
       }
       return null
     },
-    findWhere: function (query) {
-      // if (query = {}) {
-      //   return items
-      // }
-
-
-      // for (let i = 0; i < items.length; i++) {
-      //   let queryParam = Object.values(query)
-      //   let itemParam = Object.values(items[i])
-      //   console.log("queryParam: " + queryParam)
-      //   console.log("itemParam: " + itemParam)
-      //   if (queryParam === itemParam) {
-      //     returned.push(itemParam)
-      //   } else {
-      //     return []
-      //   }
-      // }
-
-      if (query = {}) {
+    findWhere(query) {
+      if (Object.keys(query) < 1) {
         return items
       }
-      // return []
+      const pair = Object.entries(query)[0]
+      return items.filter(item => item[pair[0]] === pair[1])
     },
-    deleteById: function (ident) {
+    deleteById(id) {
       for (let i = 0; i < items.length; i++) {
-        if (items[i].id === ident) {
-          let spliced = items.splice(i, 1)
-          return spliced[0]
-        } else {
-          return null
+        if (items[i].id === id) {
+          const spliced = items[i]
+          items.splice(i, 1)
+          return spliced
         }
       }
+      return null
     }
   }
 }

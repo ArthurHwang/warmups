@@ -1,14 +1,12 @@
 function createCollection() {
-
-  const items = []
+  var items = []
   let nextId = 1
-
   return {
     getitems: function() {
       return items
     },
     create: function (item) {
-      let newObj = { ...item
+      letz newObj = { ...item
       }
       newObj.id = nextId
       nextId++
@@ -37,27 +35,11 @@ function createCollection() {
       return null
     },
     findWhere: function (query) {
-      // if (query = {}) {
-      //   return items
-      // }
-
-
-      // for (let i = 0; i < items.length; i++) {
-      //   let queryParam = Object.values(query)
-      //   let itemParam = Object.values(items[i])
-      //   console.log("queryParam: " + queryParam)
-      //   console.log("itemParam: " + itemParam)
-      //   if (queryParam === itemParam) {
-      //     returned.push(itemParam)
-      //   } else {
-      //     return []
-      //   }
-      // }
-
-      if (query = {}) {
+      if (Object.keys(query).length < 1) {
         return items
       }
-      // return []
+      const pair = Object.entries(query)[0]
+      return items.filter(item => item[])
     },
     deleteById: function (ident) {
       for (let i = 0; i < items.length; i++) {

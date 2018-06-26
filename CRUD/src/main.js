@@ -1,19 +1,28 @@
 function createCollection() {
+<<<<<<< HEAD
   var items = []
+=======
+  const items = []
+>>>>>>> 940a6025c01b72914a2b513a5b54482c07ad9e33
   let nextId = 1
   return {
-    getitems: function() {
+    getitems() {
       return items
     },
+<<<<<<< HEAD
     create: function (item) {
       letz newObj = { ...item
       }
+=======
+    create(item) {
+      let newObj = { ...item}
+>>>>>>> 940a6025c01b72914a2b513a5b54482c07ad9e33
       newObj.id = nextId
       nextId++
       items.push(newObj)
       return newObj
     },
-    findById: function (ident) {
+    findById(ident) {
       for (let i = 0; i < items.length; i++) {
         if (items[i].id = ident) {
           return items[i]
@@ -21,35 +30,42 @@ function createCollection() {
       }
       return null
     },
-    updateById: function (ident, updates) {
+    updateById(ident, updates) {
       for (let i = 0; i < items.length; i++) {
         if (items[i].id = ident) {
           items[i] = { ...items[i],
             ...updates
           }
-
           return items[i]
         }
-
       }
       return null
     },
+<<<<<<< HEAD
     findWhere: function (query) {
       if (Object.keys(query).length < 1) {
         return items
       }
       const pair = Object.entries(query)[0]
       return items.filter(item => item[])
+=======
+    findWhere(query) {
+      if (Object.keys(query) < 1) {
+        return items
+      }
+      const pair = Object.entries(query)[0]
+      return items.filter(item => item[pair[0]] === pair[1])
+>>>>>>> 940a6025c01b72914a2b513a5b54482c07ad9e33
     },
-    deleteById: function (ident) {
+    deleteById(id) {
       for (let i = 0; i < items.length; i++) {
-        if (items[i].id === ident) {
-          let spliced = items.splice(i, 1)
-          return spliced[0]
-        } else {
-          return null
+        if (items[i].id === id) {
+          const spliced = items[i]
+          items.splice(i, 1)
+          return spliced
         }
       }
+      return null
     }
   }
 }
